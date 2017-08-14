@@ -140,13 +140,40 @@ document.documentElement.appendChild(document.importNode(styleElement,true))
 //     });
 // });
 
-function changecss() {
+var filterKeyword=[
+    "LexBurner",
+    "暴走漫画",
+    "综艺",
+    "HelloCatie45",
+    "王者荣耀",
+    "长歌是大腿",
+    "起小点是大腿",
+    "靠脸吃饭的徐大王",
+    "韩剧",
+    "排骨教主"
+]
+
+function hasKeyword(sourceString)
+{
+    for(var i=0;i<filterKeyword.length;i++)
+    {
+        if(sourceString!=null && sourceString.indexOf(filterKeyword[i])!=-1)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function changecss()
+{
     var eboxs = document.getElementsByClassName("ebox");
 
     for (var i = 0;i<eboxs.length;i++)
     {
         var curElement = eboxs[i];
-        if(eboxs[i].innerText.indexOf('哔哩哔哩番剧')!=-1)
+        if(!hasKeyword(eboxs[i].innerText))
         {
             // curElement.style.display="none";
             eboxs[i].style.cssText=eboxs[i].style.cssText+"display:block !important;";
@@ -158,7 +185,10 @@ function changecss() {
     }
 }
 
-setTimeout(
-    changecss,5000
-
-);
+document.addEventListener("DOMContentLoaded", function(event) {
+    changecss();
+});
+// setTimeout(
+//     changecss,5000
+//
+// );
