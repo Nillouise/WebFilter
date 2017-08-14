@@ -149,7 +149,7 @@ function changecss() {
         if(eboxs[i].innerText.indexOf('哔哩哔哩番剧')!=-1)
         {
             // curElement.style.display="none";
-            eboxs[i].style.cssText=eboxs[i].style.cssText+"display:block;";
+            eboxs[i].style.cssText=eboxs[i].style.cssText+"display:block !important;";
         }
 
 
