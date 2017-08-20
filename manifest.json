@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "WebFilter",
+  "description": "This extension currently can filter the bilibi online page.",
   "version": "1.0",
 
   "browser_action": {
@@ -17,10 +17,14 @@
       "run_at":"document_start"
     }
   ],
-
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
   "permissions": [
     "activeTab",
    "https://ajax.googleapis.com/",
-    "http://www.bilibili.com/video/online.html"
+    "http://www.bilibili.com/video/online.html",
+    "storage"
   ]
 }

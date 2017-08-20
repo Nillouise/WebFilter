@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
  This page is shown when the extension button is clicked, because the
  "browser_action" field in manifest.json contains the "default_popup" key with
@@ -20,7 +20,7 @@
         max-width: 400px;
       }
     </style>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -32,6 +32,8 @@
   <body>
     <div id="status"></div>
     <img id="image-result" hidden>
+    <div>过滤字符串：<input id="filterString" type="text" value=""/></div>
+    <input type="button" value="应用" id="applyButton">
   </body>
 </html>
 

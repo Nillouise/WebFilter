@@ -140,6 +140,8 @@ document.documentElement.appendChild(document.importNode(styleElement,true))
 //     });
 // });
 
+
+
 var filterKeyword=[
     "LexBurner",
     "暴走漫画",
@@ -152,11 +154,26 @@ var filterKeyword=[
     "韩剧",
     "排骨教主"
 ]
+// chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+//     console.log(response.farewell);
+//     console.log("conten scrpit receive string :"+response.filterString);
+//     filterKeyword = response.filterString;
+// });
+
+chrome.storage.sync.get("filterString",function (filterString) {
+    filterKeyword = filterString.filterString.split(";");
+    console.log(filterKeyword);
+});
 
 function hasKeyword(sourceString)
 {
     for(var i=0;i<filterKeyword.length;i++)
     {
+        if(filterKeyword[i].length==0)
+        {
+            continue;
+        }
+
         if(sourceString!=null && sourceString.indexOf(filterKeyword[i])!=-1)
         {
             return true;
@@ -180,8 +197,8 @@ function changecss()
         }
 
 
-        console.log(eboxs[i].innerHTML);
-        console.log(eboxs[i].style.cssText)
+        // console.log(eboxs[i].innerHTML);
+        // console.log(eboxs[i].style.cssText)
     }
 }
 
