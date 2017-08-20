@@ -169,12 +169,12 @@ function hasKeyword(sourceString)
 {
     for(var i=0;i<filterKeyword.length;i++)
     {
-        if(filterKeyword[i].length==0)
+        if(filterKeyword[i].trim().length==0)
         {
             continue;
         }
 
-        if(sourceString!=null && sourceString.indexOf(filterKeyword[i])!=-1)
+        if(sourceString!=null && sourceString.indexOf(filterKeyword[i].trim())!=-1)
         {
             return true;
         }
